@@ -1,0 +1,6 @@
+{
+  "name": "NESTRO — Студия веб-разработки и автоматизации бизнеса",
+  "description": "Создаём современные сайты, онлайн-запись, каталоги и системы 24/7 CRM-автоматизации для развития бизнеса. От идеи и дизайна до запуска.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

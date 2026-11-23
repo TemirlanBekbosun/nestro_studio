@@ -1,0 +1,362 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #F7F8F8;
+    --surface-white: #FFFFFF;
+    --surface-light: #E8EBEB;
+    --surface-silver: #D1D5D5;
+    --text-primary: #171919;
+    --text-secondary: #777D7D;
+    --accent-obsidian: #252B29;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #F7F8F8;
+    color: #171919;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 8% 8%, rgba(255, 255, 255, 0.98), transparent 24rem),
+      radial-gradient(circle at 92% 18%, rgba(224, 228, 227, 0.55), transparent 28rem),
+      linear-gradient(145deg, #fbfcfc 0%, #f4f6f6 52%, #fafafa 100%);
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    touch-action: manipulation;
+  }
+
+  .liquid-glass-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.72), transparent 38%),
+      radial-gradient(circle at 72% 12%, rgba(255,255,255,0.88), transparent 18rem);
+  }
+
+  .liquid-orb,
+  .liquid-arc {
+    position: absolute;
+    will-change: transform;
+    contain: strict;
+  }
+
+  .liquid-orb {
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.72);
+    background: rgba(255,255,255,0.34);
+    box-shadow:
+      inset 18px 18px 42px rgba(255,255,255,0.62),
+      inset -12px -16px 32px rgba(191,198,196,0.12),
+      0 24px 70px rgba(37,43,41,0.035);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .liquid-orb-one {
+    width: 28rem;
+    height: 28rem;
+    left: -15rem;
+    top: 14%;
+    animation: liquid-drift-one 24s ease-in-out infinite alternate;
+  }
+
+  .liquid-orb-two {
+    width: 18rem;
+    height: 18rem;
+    right: -7rem;
+    top: 38%;
+    animation: liquid-drift-two 21s ease-in-out infinite alternate;
+  }
+
+  .liquid-orb-three {
+    width: 10rem;
+    height: 10rem;
+    left: 18%;
+    bottom: -5rem;
+    opacity: 0.72;
+    animation: liquid-drift-three 18s ease-in-out infinite alternate;
+  }
+
+  .liquid-arc {
+    border: 1px solid rgba(255,255,255,0.78);
+    border-radius: 50%;
+    box-shadow: inset 0 0 32px rgba(255,255,255,0.32);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .liquid-arc-one {
+    width: 32rem;
+    height: 32rem;
+    right: -20rem;
+    bottom: -9rem;
+    animation: liquid-turn 30s linear infinite;
+  }
+
+  .liquid-arc-two {
+    width: 14rem;
+    height: 14rem;
+    left: 54%;
+    top: 68%;
+    opacity: 0.38;
+    animation: liquid-drift-two 26s ease-in-out infinite alternate-reverse;
+  }
+
+  .liquid-grid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.42;
+    stroke-width: 1;
+    animation: liquid-grid-breathe 12s ease-in-out infinite;
+  }
+
+  .liquid-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  }
+
+  @keyframes liquid-drift-one {
+    to { transform: translate3d(5rem, 3rem, 0) scale(1.05); }
+  }
+
+  @keyframes liquid-drift-two {
+    to { transform: translate3d(-3.5rem, 4rem, 0) scale(0.96); }
+  }
+
+  @keyframes liquid-drift-three {
+    to { transform: translate3d(4rem, -2.5rem, 0) scale(1.08); }
+  }
+
+  @keyframes liquid-turn {
+    to { transform: rotate(8deg) translate3d(-1.5rem, -1rem, 0); }
+  }
+
+  @keyframes liquid-grid-breathe {
+    50% { opacity: 0.18; }
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid rgba(37, 43, 41, 0.55);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.glass-surface {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 12px 36px -12px rgba(23, 25, 25, 0.06), 0 1px 2px rgba(23, 25, 25, 0.03);
+}
+
+.glass-surface-strong {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 48px -16px rgba(23, 25, 25, 0.08), 0 1px 3px rgba(23, 25, 25, 0.04);
+}
+
+.glass-card-hover {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms ease;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 50px -18px rgba(23, 25, 25, 0.14), 0 2px 8px rgba(23, 25, 25, 0.05);
+  border-color: rgba(209, 213, 213, 0.9);
+}
+
+.glass-card-hover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.glass-card-hover::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: -1;
+  background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.78) 48%, transparent 58%);
+  transform: translateX(-55%) rotate(8deg);
+  opacity: 0;
+  transition: transform 700ms cubic-bezier(0.16,1,0.3,1), opacity 300ms ease;
+  pointer-events: none;
+}
+
+.glass-card-hover:hover::after {
+  transform: translateX(55%) rotate(8deg);
+  opacity: 0.7;
+}
+
+button,
+.glass-card-hover button,
+.glass-card-hover a {
+  position: relative;
+  overflow: hidden;
+}
+
+button::before,
+.glass-card-hover a::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 180%;
+  left: -70%;
+  top: -40%;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+  transition: left 550ms cubic-bezier(0.16,1,0.3,1);
+  pointer-events: none;
+}
+
+button:hover::before,
+.glass-card-hover a:hover::before {
+  left: 130%;
+}
+
+button:active,
+a:active {
+  transform: scale(0.985);
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+
+  section h2.text-2xl,
+  section h2.text-3xl,
+  section h2.text-4xl {
+    font-size: clamp(30px, 8vw, 34px);
+    line-height: 1.12;
+  }
+
+  section h3.text-xl,
+  section h3.text-2xl,
+  section h3.text-base {
+    font-size: clamp(20px, 5.5vw, 23px);
+    line-height: 1.25;
+  }
+
+  section p.text-xs,
+  section p.text-sm,
+  section p.text-base,
+  section p.text-\[11px\],
+  section p.text-\[13px\],
+  section p.text-\[15px\] {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  section .text-xs,
+  section .text-\[11px\],
+  section .text-\[13px\] {
+    font-size: 14px;
+  }
+
+  section .text-sm,
+  section .text-base,
+  section .text-\[15px\] {
+    font-size: 16px;
+  }
+
+  input,
+  textarea,
+  select {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  textarea {
+    min-height: 112px;
+  }
+
+  button {
+    min-height: 44px;
+  }
+
+  .glass-surface {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .liquid-orb-three,
+  .liquid-arc-two,
+  .liquid-grid {
+    display: none;
+  }
+
+  .liquid-orb {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .liquid-orb-one {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .liquid-orb-two {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .glass-card-hover,
+  .glass-card-hover:hover,
+  .liquid-glass-background *,
+  .liquid-glass-background {
+    transition: none;
+    transform: none;
+    animation: none !important;
+  }
+
+  button::before,
+  .glass-card-hover::after {
+    display: none;
+  }
+}
